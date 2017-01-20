@@ -5,15 +5,19 @@
 package lejusteprix;
 
 /**
- *
+ * Une boîte est un conteneur dans lequel on peut mettre un article
  * @author Adrien Savoretti
  */
 public class Boite extends Conteneur implements Contenu {
     
-    public boolean isInContainer = false;
-    public int numeroBoite;
-    public boolean isEmpty = true;
+    private boolean isInContainer = false;
+    private int numeroBoite;
+    private boolean isEmpty = true;
     
+    /**
+     * Permet de créer une boîte
+     * @param numeroBoite 
+     */
     public Boite(int numeroBoite) {
         this.numeroBoite = numeroBoite;
     }

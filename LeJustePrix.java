@@ -5,7 +5,8 @@
 package lejusteprix;
 
 /**
- *
+ * Programme principal, permet de créer des paniers, des articles et des boites,
+ * permet d'imbriquer des boites dans des boites et des articles dans des boîtes.
  * @author Adrien Savoretti
  */
 public class LeJustePrix {
@@ -31,13 +32,13 @@ public class LeJustePrix {
         monPanier.add(boite1);      // +5
         boite1.add(boite2);         // +5
         
-        boite2.add(banane);          // Article déjà dans un autre conteneur
-        boite1.add(melon);          // +4.5
+        boite2.add(banane);         // Article déjà dans un autre conteneur
+        boite1.add(melon);          // Boîte déjà pleine
         boite2.add(raisins);        // +3.2
         
-        boite2.add(boite3);         // +5
+        boite2.add(boite3);         // Boîte déjà pleine
         
-        boite2.add(melon);          // Article déjà dans un autre conteneur
+        monPanier.add(boite3);      // +5
         
         System.out.println(monPanier.getPrice());
     }

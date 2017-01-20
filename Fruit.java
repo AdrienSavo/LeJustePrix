@@ -5,7 +5,7 @@
 package lejusteprix;
 
 /**
- *
+ * Un fruit est un article qui peut être mis dans un conteneur
  * @author Adrien Savoretti
  */
 public class Fruit implements Contenu {
@@ -14,6 +14,11 @@ public class Fruit implements Contenu {
     private String nom;
     private boolean isInContainer = false;
 
+    /**
+     * Permet de créer un fruit
+     * @param nom
+     * @param prix 
+     */
     public Fruit(String nom, double prix) {
         this.prix = prix;
         this.nom = nom;

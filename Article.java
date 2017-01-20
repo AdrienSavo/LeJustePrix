@@ -5,7 +5,7 @@
 package lejusteprix;
 
 /**
- *
+ * Un article est un objet défini par son prix
  * @author Adrien Savoretti
  */
 public interface Article {

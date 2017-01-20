@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Un panier est un conteneur pouvant accueillir plusieurs articles
  * @author Adrien Savoretti
  */
 public class Panier extends Conteneur {

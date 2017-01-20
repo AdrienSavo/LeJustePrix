@@ -8,50 +8,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Un conteneur permet de contenir des articles
  * @author Adrien Savoretti
  */
 public abstract class Conteneur {
 
     private List<Contenu> listeArticles = new ArrayList();
-    public boolean isEmpty = false;
+    public boolean isEmpty = true;
 
     /**
      * Permet d'ajouter un article dans le conteneur
      * @param contenu
      */
     public void add(Contenu contenu) {
-
-        // Si l'article est dans un container
-        if (contenu.isInContainer()) {
+        
+        // Si l'article est déjà dans un conteneur
+        if (contenu.isInContainer()) System.out.println("Cet article est déjà dans un autre conteneur.");
+        
+        // Si c'est une boîte qui n'est pas vide
+        else if (Boite.class.isInstance(this) && !this.isEmpty) System.out.println(this + " contient déjà un article.");
+        
+        // Si c'est un article quelconque ou une boîte vide 
+        else {
+            // Si c'est une boîte
+            if (Boite.class.isInstance(this)) {
+                this.isEmpty = false;
+                System.out.println(this + " est maintenant pleine !");
+            }
             
-            System.out.println("Cet article est déjà dans un autre conteneur.");
-        } else {
+            // Ajoute le contenu à la liste
             listeArticles.add(contenu);
 
             // Flag appartient au container
             contenu.setInContainer();
         }
-
-        //System.out.println(listeArticles);
-        // empêcher l'ajout d'un article dans une boîte déjà utilisée
-        /*
-        // Si l'article est une boîte
-            if (Conteneur.class.isInstance(contenu)) {
-                if(contenu.isEmpty()) {
-                    
-                }
-                
-                System.out.println("C'est une boîte : " + contenu);
-                System.out.println("Dans cette boîte : " + listeArticles);
-            }
-        */
     }
-
+    
+    /**
+     * Récupère le prix total d'un conteneur
+     * @return sum (double)
+     */
     public double getPrice() {
         
         // Stream faisant la somme des prix
-        double sum = listeArticles.stream().filter(o -> o.price() > 0).mapToDouble(o->o.price()).sum();
+        double sum = listeArticles.stream().mapToDouble(o->o.price()).sum();
         return sum;
     }
 
