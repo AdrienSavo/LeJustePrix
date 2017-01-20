@@ -16,7 +16,6 @@ public class LeJustePrix {
     public static void main(String[] args) {
         
         Panier monPanier = new Panier();
-        Panier monAutrePanier = new Panier();
         
         Fruit pomme = new Fruit("pomme", 1);
         Fruit banane = new Fruit("banane", 2.5);
@@ -31,15 +30,15 @@ public class LeJustePrix {
         monPanier.add(banane);      // +2.5
         monPanier.add(boite1);      // +5
         boite1.add(boite2);         // +5
+        
+        boite2.add(banane);          // Article déjà dans un autre conteneur
         boite1.add(melon);          // +4.5
         boite2.add(raisins);        // +3.2
-        //boite3.add(raisins);
-        boite2.add(boite3);         // +5
-        boite2.add(melon);
-
         
+        boite2.add(boite3);         // +5
+        
+        boite2.add(melon);          // Article déjà dans un autre conteneur
         
         System.out.println(monPanier.getPrice());
-        System.out.println(monAutrePanier.getPrice());
     }
 }

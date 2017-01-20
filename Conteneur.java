@@ -14,7 +14,6 @@ import java.util.List;
 public abstract class Conteneur {
 
     private List<Contenu> listeArticles = new ArrayList();
-    private double prix;
     public boolean isEmpty = false;
 
     /**
@@ -50,21 +49,10 @@ public abstract class Conteneur {
     }
 
     public double getPrice() {
-
-        //double prix;
-        // On parcourt la liste d'articles dans le panier
-        for (int i = 0; i < listeArticles.size(); i++) {
-
-            // Pour chaque article, on appelle sa méthode price
-            prix += listeArticles.get(i).price();
-
-            System.out.println("Voici : " + listeArticles.get(i) + " au prix de " + prix);
-
-        }
-
-        System.out.println("Test : " + listeArticles);
-
-        return prix;
+        
+        // Stream faisant la somme des prix
+        double sum = listeArticles.stream().filter(o -> o.price() > 0).mapToDouble(o->o.price()).sum();
+        return sum;
     }
 
 }
