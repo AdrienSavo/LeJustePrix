@@ -10,4 +10,7 @@ package lejusteprix;
  */
 public interface Contenu extends Article {
     
+    public boolean isInContainer();
+
+    public void setInContainer();
 }

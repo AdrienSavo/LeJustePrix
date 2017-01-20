@@ -12,6 +12,7 @@ public class Fruit implements Contenu {
     
     private double prix;
     private String nom;
+    private boolean isInContainer = false;
 
     public Fruit(String nom, double prix) {
         this.prix = prix;
@@ -26,6 +27,16 @@ public class Fruit implements Contenu {
     @Override
     public String toString() {
         return this.nom;
+    }
+
+    @Override
+    public boolean isInContainer() {
+        return this.isInContainer;
+    }
+
+    @Override
+    public void setInContainer() {
+        this.isInContainer = true;
     }
     
 }

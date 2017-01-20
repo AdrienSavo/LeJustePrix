@@ -10,6 +10,14 @@ package lejusteprix;
  */
 public class Boite extends Conteneur implements Contenu {
     
+    public boolean isInContainer = false;
+    public int numeroBoite;
+    public boolean isEmpty = true;
+    
+    public Boite(int numeroBoite) {
+        this.numeroBoite = numeroBoite;
+    }
+    
     @Override
     public double price() {
         
@@ -24,7 +32,17 @@ public class Boite extends Conteneur implements Contenu {
     
     @Override
     public String toString() {
-        return "boîte";
+        return "boîte " + numeroBoite;
+    }
+    
+    @Override
+    public boolean isInContainer() {
+        return this.isInContainer;
+    }
+
+    @Override
+    public void setInContainer() {
+        this.isInContainer = true;
     }
     
 }
